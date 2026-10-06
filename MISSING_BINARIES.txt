@@ -1,0 +1,6 @@
+Binary assets recovered / substituted (2026-10-05)
+=================================================
+- public/favicon.png / public/favicon.ico: generated from local-biz-ninja-logo.png
+- src/assets/local-biz-ninja-logo.png: downloaded from Lovable asset CDN
+- src/assets/hero.jpg: temporary stand-in from Lovable project screenshot (full page).
+  Replace with the original hero art from Lovable when available.
