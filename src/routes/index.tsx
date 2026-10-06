@@ -1,12 +1,15 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
-  Ghost, MessageSquareX, MapPin,
+  MapPin,
   ShieldCheck,
   Sparkles, Calendar, Send, MessageSquare,
   Star, ShieldAlert, CheckCircle2, ArrowRight,
   BarChart3, LineChart, Lightbulb, TrendingUp,
 } from "lucide-react";
 import heroImg from "../assets/hero.jpg";
+import { Reveal } from "../components/Reveal";
+import { ChannelDemo } from "../components/ChannelDemo";
+import { ProblemSwitcher } from "../components/ProblemSwitcher";
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -17,11 +20,13 @@ function Home() {
     <>
       {/* HERO */}
       <section className="relative overflow-hidden text-white" style={{ background: "var(--gradient-hero)" }}>
+        <div className="hero-orb hero-orb-a" aria-hidden="true" />
+        <div className="hero-orb hero-orb-b" aria-hidden="true" />
         <div className="absolute inset-0 opacity-30" style={{ backgroundImage: "radial-gradient(circle at 20% 30%, oklch(0.74 0.14 195 / 0.35), transparent 40%)" }} />
         <div className="relative max-w-7xl mx-auto px-6 py-24 md:py-32 grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-medium text-primary mb-6">
-              <Sparkles className="w-3.5 h-3.5" /> Built for local businesses
+          <div className="hero-rise">
+            <div className="hero-badge inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-medium text-primary mb-6">
+              <Sparkles className="hero-spark w-3.5 h-3.5" /> Built for local businesses
             </div>
             <h1 className="text-4xl md:text-6xl font-bold leading-[1.05] tracking-tight">
               The All-in-One <span className="text-primary">Automated Assistant</span> for Local Businesses
@@ -42,7 +47,7 @@ function Home() {
               <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-primary" /> Setup in days</div>
             </div>
           </div>
-          <div className="relative">
+          <div className="hero-rise relative" style={{ animationDelay: "120ms" }}>
             <div className="absolute -inset-8 rounded-3xl blur-3xl opacity-40" style={{ background: "var(--gradient-teal)" }} />
             <img src={heroImg} alt="Local Biz Ninja automated assistant dashboard" width={1600} height={1200} className="relative rounded-2xl border border-white/10 shadow-2xl" />
           </div>
@@ -51,26 +56,14 @@ function Home() {
 
       {/* PROBLEM GRID */}
       <section className="max-w-7xl mx-auto px-6 py-24">
-        <div className="max-w-2xl mb-14">
+        <Reveal className="max-w-2xl mb-14">
           <div className="text-sm font-semibold text-primary uppercase tracking-wider mb-3">The Leaky Bucket</div>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Every day, local businesses lose real money in three places.</h2>
-          <p className="mt-4 text-lg text-muted-foreground">You're working hard to bring leads in. Here's where they're quietly slipping out.</p>
-        </div>
-        <div className="grid md:grid-cols-3 gap-6">
-          {[
-            { icon: Ghost, title: "Ghost Town Social Media", desc: "Empty profiles and stale posts make you look closed. Prospects scroll past to businesses that look alive." },
-            { icon: MessageSquareX, title: "Unanswered Reviews", desc: "Reviews sitting without a response tell future customers you don't care - and quietly tank your local search ranking." },
-            { icon: MapPin, title: "Invisible in Local Search", desc: "Without a clear view of where you rank, competitors own the searches your customers already make - and the lost traffic never shows up on a report." },
-          ].map((p) => (
-            <div key={p.title} className="group relative rounded-2xl border border-border bg-card p-8 hover:border-primary/50 hover:shadow-[var(--shadow-card)] transition-all">
-              <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style={{ background: "var(--gradient-teal)" }}>
-                <p.icon className="w-6 h-6 text-slate-deep" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">{p.title}</h3>
-              <p className="text-muted-foreground leading-relaxed">{p.desc}</p>
-            </div>
-          ))}
-        </div>
+          <p className="mt-4 text-lg text-muted-foreground">Pick a leak. We'll show the fix — marketing, reviews, or local visibility.</p>
+        </Reveal>
+        <Reveal delay={80}>
+          <ProblemSwitcher />
+        </Reveal>
       </section>
 
       {/* FEATURE 1: Multi-Channel Marketing */}
@@ -84,7 +77,9 @@ function Home() {
           { icon: Calendar, title: "Automated Planner & Calendar", body: "A month-at-a-glance content plan is built for you and scheduled automatically - so your marketing runs itself." },
         ]}
         dark
-      />
+      >
+        <ChannelDemo dark />
+      </FeatureSection>
 
       {/* FEATURE 2: Reputation Protection */}
       <FeatureSection
@@ -102,8 +97,9 @@ function Home() {
       <VisibilitySection />
 
       {/* FINAL CTA */}
-      <section className="relative overflow-hidden">
+      <section className="relative overflow-hidden" data-final-cta>
         <div className="max-w-6xl mx-auto px-6 py-20">
+          <Reveal>
           <div className="relative rounded-3xl overflow-hidden p-12 md:p-20 text-center" style={{ background: "var(--gradient-hero)" }}>
             <div className="absolute inset-0 opacity-40" style={{ backgroundImage: "radial-gradient(circle at 50% 0%, oklch(0.74 0.14 195 / 0.5), transparent 60%)" }} />
             <div className="relative">
@@ -123,6 +119,7 @@ function Home() {
               </div>
             </div>
           </div>
+          </Reveal>
         </div>
       </section>
     </>
@@ -167,7 +164,7 @@ function VisibilitySection() {
     <section className="text-white" style={{ background: "var(--gradient-hero)" }}>
       <div className="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-2 gap-14 items-center">
         {/* TEXT SIDE */}
-        <div>
+        <Reveal>
           <div className="text-sm font-semibold text-primary uppercase tracking-wider mb-3">
             Feature 03 · Reporting & Local Visibility Analytics
           </div>
@@ -179,7 +176,7 @@ function VisibilitySection() {
           </p>
           <div className="mt-10 space-y-5">
             {points.map((p) => (
-              <div key={p.title} className="flex gap-4 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-primary/40 transition-colors p-5">
+              <div key={p.title} className="lift-card flex gap-4 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-primary/40 p-5">
                 <div className="shrink-0 w-11 h-11 rounded-xl flex items-center justify-center" style={{ background: "var(--gradient-teal)" }}>
                   <p.icon className="w-5 h-5 text-slate-deep" />
                 </div>
@@ -190,10 +187,10 @@ function VisibilitySection() {
               </div>
             ))}
           </div>
-        </div>
+        </Reveal>
 
         {/* VISUAL SIDE - SEO Grid Heat Map UI Mock */}
-        <div className="relative">
+        <Reveal className="relative" delay={120}>
           <div className="absolute -inset-8 rounded-3xl blur-3xl opacity-40" style={{ background: "var(--gradient-teal)" }} />
           <div className="relative rounded-3xl border border-white/10 bg-slate-deep/80 backdrop-blur-xl shadow-2xl overflow-hidden">
             {/* Window chrome */}
@@ -240,7 +237,10 @@ function VisibilitySection() {
                   const s = rankStyles[cell.rank];
                   return (
                     <div key={i} className="flex items-center justify-center">
-                      <div className={`relative w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center font-bold text-lg ring-4 ${s.ring} ${s.bg} ${s.glow}`}>
+                      <div
+                        className={`relative w-14 h-14 md:w-16 md:h-16 rounded-full flex items-center justify-center font-bold text-lg ring-4 ${s.ring} ${s.bg} ${s.glow} ${cell.rank === 1 ? "rank-live" : ""}`}
+                        style={cell.rank === 1 ? { animationDelay: `${(i % 3) * 0.35}s` } : undefined}
+                      >
                         {cell.rank}
                       </div>
                     </div>
@@ -262,42 +262,44 @@ function VisibilitySection() {
               </div>
             </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
 }
 
 function FeatureSection({
-  eyebrow, title, description, bullets, dark = false,
-}: { eyebrow: string; title: string; description: string; bullets: Bullet[]; dark?: boolean; icons?: unknown[] }) {
+  eyebrow, title, description, bullets, dark = false, children,
+}: { eyebrow: string; title: string; description: string; bullets: Bullet[]; dark?: boolean; children?: React.ReactNode }) {
   return (
     <section
       className={dark ? "text-white" : "bg-muted/40"}
       style={dark ? { background: "var(--gradient-hero)" } : undefined}
     >
       <div className="max-w-7xl mx-auto px-6 py-24">
-        <div className="max-w-2xl mb-14">
-          <div className={`text-sm font-semibold uppercase tracking-wider mb-3 ${dark ? "text-primary" : "text-primary"}`}>{eyebrow}</div>
+        <Reveal className="max-w-2xl mb-14">
+          <div className="text-sm font-semibold uppercase tracking-wider mb-3 text-primary">{eyebrow}</div>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight">{title}</h2>
           <p className={`mt-4 text-lg ${dark ? "text-white/70" : "text-muted-foreground"}`}>{description}</p>
-        </div>
+        </Reveal>
         <div className="grid md:grid-cols-3 gap-6">
-          {bullets.map((b) => (
-            <div
-              key={b.title}
-              className={`rounded-2xl p-8 border transition-all ${
-                dark ? "bg-white/[0.03] border-white/10 hover:border-primary/40" : "bg-card border-border hover:border-primary/40 hover:shadow-[var(--shadow-card)]"
-              }`}
-            >
-              <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-5" style={{ background: "var(--gradient-teal)" }}>
-                <b.icon className="w-5 h-5 text-slate-deep" />
+          {bullets.map((b, index) => (
+            <Reveal key={b.title} delay={index * 90}>
+              <div
+                className={`lift-card h-full rounded-2xl p-8 border ${
+                  dark ? "bg-white/[0.03] border-white/10 hover:border-primary/40" : "bg-card border-border hover:border-primary/40"
+                }`}
+              >
+                <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-5" style={{ background: "var(--gradient-teal)" }}>
+                  <b.icon className="w-5 h-5 text-slate-deep" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">{b.title}</h3>
+                <p className={dark ? "text-white/60" : "text-muted-foreground"}>{b.body}</p>
               </div>
-              <h3 className="text-lg font-semibold mb-2">{b.title}</h3>
-              <p className={dark ? "text-white/60" : "text-muted-foreground"}>{b.body}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
+        {children}
       </div>
     </section>
   );

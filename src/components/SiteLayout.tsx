@@ -1,5 +1,6 @@
 import { Link, Outlet } from "@tanstack/react-router";
 import logoAsset from "@/assets/local-biz-ninja-logo.png.asset.json";
+import { ScrollCta } from "@/components/ScrollCta";
 
 function Logo() {
   return (
@@ -86,6 +87,7 @@ export function SiteLayout() {
       <main className="flex-1">
         <Outlet />
       </main>
+      <ScrollCta />
       <SiteFooter />
     </div>
   );

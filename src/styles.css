@@ -152,3 +152,184 @@
     color: var(--color-foreground);
   }
 }
+
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes orb-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(28px, 18px, 0) scale(1.08);
+  }
+}
+
+@keyframes badge-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 oklch(0.74 0.14 195 / 0);
+  }
+  50% {
+    box-shadow: 0 0 28px 0 oklch(0.74 0.14 195 / 0.38);
+  }
+}
+
+@keyframes spark-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.18);
+    opacity: 1;
+  }
+}
+
+@keyframes channel-swap {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes cta-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 16px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes rank-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+}
+
+.reveal-hidden {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+.reveal-shown {
+  animation: reveal-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero-rise {
+  animation: hero-rise 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero-orb {
+  position: absolute;
+  border-radius: 9999px;
+  pointer-events: none;
+  filter: blur(36px);
+  background: radial-gradient(circle, oklch(0.74 0.14 195 / 0.55), transparent 68%);
+}
+
+.hero-orb-a {
+  width: 280px;
+  height: 280px;
+  top: -48px;
+  left: 8%;
+  animation: orb-drift 16s ease-in-out infinite;
+}
+
+.hero-orb-b {
+  width: 360px;
+  height: 360px;
+  right: -80px;
+  bottom: -100px;
+  animation: orb-drift 22s ease-in-out infinite reverse;
+}
+
+.hero-badge {
+  animation: badge-glow 3.8s ease-in-out infinite;
+}
+
+.hero-spark {
+  animation: spark-pulse 2.8s ease-in-out infinite;
+}
+
+.channel-swap {
+  animation: channel-swap 0.35s ease;
+}
+
+.lift-card {
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease,
+    border-color 0.35s ease,
+    background-color 0.35s ease;
+}
+
+.lift-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px -18px oklch(0.74 0.14 195 / 0.55);
+}
+
+.rank-live {
+  animation: rank-pulse 3.4s ease-in-out infinite;
+}
+
+.scroll-cta {
+  animation: cta-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-hidden,
+  .reveal-shown,
+  .hero-rise,
+  .hero-orb-a,
+  .hero-orb-b,
+  .hero-badge,
+  .hero-spark,
+  .channel-swap,
+  .rank-live,
+  .scroll-cta {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .lift-card:hover {
+    transform: none;
+  }
+
+  .scroll-cta {
+    transform: translate(-50%, 0);
+  }
+}

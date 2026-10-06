@@ -3,6 +3,7 @@ import {
   Send, Calendar, MessageSquare, MapPin, BarChart3, Lightbulb,
   Star, ShieldAlert, ShieldCheck, TrendingUp, Clock, DollarSign, ArrowRight,
 } from "lucide-react";
+import { Reveal } from "../components/Reveal";
 
 export const Route = createFileRoute("/features")({
   head: () => ({
@@ -59,8 +60,10 @@ const groups = [
 function FeaturesPage() {
   return (
     <>
-      <section className="text-white" style={{ background: "var(--gradient-hero)" }}>
-        <div className="max-w-5xl mx-auto px-6 py-24 md:py-32 text-center">
+      <section className="relative overflow-hidden text-white" style={{ background: "var(--gradient-hero)" }}>
+        <div className="hero-orb hero-orb-a" aria-hidden="true" />
+        <div className="hero-orb hero-orb-b" aria-hidden="true" />
+        <div className="relative max-w-5xl mx-auto px-6 py-24 md:py-32 text-center hero-rise">
           <div className="text-sm font-semibold text-primary uppercase tracking-wider mb-4">Features</div>
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight">Everything you need to stay visible and grow.</h1>
           <p className="mt-6 text-lg text-white/70 max-w-2xl mx-auto">
@@ -72,14 +75,16 @@ function FeaturesPage() {
       {/* Outcomes grid */}
       <section className="max-w-7xl mx-auto px-6 py-20">
         <div className="grid md:grid-cols-4 gap-6">
-          {outcomes.map((o) => (
-            <div key={o.title} className="rounded-2xl bg-card border border-border p-6 hover:border-primary/40 transition">
+          {outcomes.map((o, index) => (
+            <Reveal key={o.title} delay={index * 70}>
+            <div className="lift-card h-full rounded-2xl bg-card border border-border p-6 hover:border-primary/40">
               <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style={{ background: "var(--gradient-teal)" }}>
                 <o.icon className="w-5 h-5 text-slate-deep" />
               </div>
               <div className="font-semibold mb-1">{o.title}</div>
               <p className="text-sm text-muted-foreground">{o.body}</p>
             </div>
+            </Reveal>
           ))}
         </div>
       </section>
@@ -87,27 +92,30 @@ function FeaturesPage() {
       {groups.map((g, i) => (
         <section key={g.eyebrow} className={i % 2 === 1 ? "bg-muted/40" : ""}>
           <div className="max-w-7xl mx-auto px-6 py-20">
-            <div className="max-w-2xl mb-12">
+            <Reveal className="max-w-2xl mb-12">
               <div className="text-sm font-semibold text-primary uppercase tracking-wider mb-3">{g.eyebrow}</div>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight">{g.title}</h2>
               <p className="mt-4 text-lg text-muted-foreground">{g.intro}</p>
-            </div>
+            </Reveal>
             <div className="grid md:grid-cols-3 gap-6">
-              {g.items.map((it) => (
-                <div key={it.title} className="rounded-2xl bg-card border border-border p-8 hover:border-primary/40 hover:shadow-[var(--shadow-card)] transition">
+              {g.items.map((it, itemIndex) => (
+                <Reveal key={it.title} delay={itemIndex * 80}>
+                <div className="lift-card h-full rounded-2xl bg-card border border-border p-8 hover:border-primary/40">
                   <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-5" style={{ background: "var(--gradient-teal)" }}>
                     <it.icon className="w-5 h-5 text-slate-deep" />
                   </div>
                   <h3 className="text-lg font-semibold mb-2">{it.title}</h3>
                   <p className="text-muted-foreground">{it.body}</p>
                 </div>
+                </Reveal>
               ))}
             </div>
           </div>
         </section>
       ))}
 
-      <section className="max-w-6xl mx-auto px-6 py-20">
+      <section className="max-w-6xl mx-auto px-6 py-20" data-final-cta>
+        <Reveal>
         <div className="rounded-3xl p-12 md:p-16 text-center text-white" style={{ background: "var(--gradient-hero)" }}>
           <h2 className="text-3xl md:text-4xl font-bold tracking-tight max-w-2xl mx-auto">Ready to see it in action?</h2>
           <p className="mt-4 text-white/70 max-w-xl mx-auto">A 20-minute personalized walkthrough - no pressure, no jargon.</p>
@@ -115,6 +123,7 @@ function FeaturesPage() {
             Book a Demo <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
+        </Reveal>
       </section>
     </>
   );

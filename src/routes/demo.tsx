@@ -3,6 +3,7 @@ import { useState } from "react";
 import { CheckCircle2, Sparkles, Clock, ShieldCheck } from "lucide-react";
 import { useServerFn } from "@tanstack/react-start";
 import { submitDemoRequest } from "@/lib/demo.functions";
+import { Reveal } from "../components/Reveal";
 
 export const Route = createFileRoute("/demo")({
   head: () => ({
@@ -24,11 +25,13 @@ function DemoPage() {
   const submit = useServerFn(submitDemoRequest);
 
   return (
-    <section className="relative text-white min-h-[calc(100vh-4rem)]" style={{ background: "var(--gradient-hero)" }}>
-      <div className="max-w-6xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-16">
-        <div>
-          <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-medium text-primary mb-6">
-            <Sparkles className="w-3.5 h-3.5" /> Personalized 20-min demo
+    <section className="relative overflow-hidden text-white min-h-[calc(100vh-4rem)]" style={{ background: "var(--gradient-hero)" }}>
+      <div className="hero-orb hero-orb-a" aria-hidden="true" />
+      <div className="hero-orb hero-orb-b" aria-hidden="true" />
+      <div className="relative max-w-6xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-16">
+        <Reveal>
+          <div className="hero-badge inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-medium text-primary mb-6">
+            <Sparkles className="hero-spark w-3.5 h-3.5" /> Personalized 20-min demo
           </div>
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight">See Local Biz Ninja tailored to your business.</h1>
           <p className="mt-5 text-lg text-white/70">
@@ -51,8 +54,9 @@ function DemoPage() {
               </li>
             ))}
           </ul>
-        </div>
+        </Reveal>
 
+        <Reveal delay={100}>
         <div className="rounded-2xl bg-white text-foreground p-8 md:p-10 shadow-2xl">
           {submitted ? (
             <div className="text-center py-12">
@@ -146,6 +150,7 @@ function DemoPage() {
             </form>
           )}
         </div>
+        </Reveal>
       </div>
     </section>
   );
