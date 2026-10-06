@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
-  PhoneCall, BellRing, Users, Send, Calendar, MessageSquare,
+  Send, Calendar, MessageSquare, MapPin, BarChart3, Lightbulb,
   Star, ShieldAlert, ShieldCheck, TrendingUp, Clock, DollarSign, ArrowRight,
 } from "lucide-react";
 
@@ -8,39 +8,29 @@ export const Route = createFileRoute("/features")({
   head: () => ({
     meta: [
       { title: "Features - Local Biz Ninja" },
-      { name: "description", content: "Explore every feature: instant missed-call recovery, 1-click multi-channel marketing, and automated reputation protection built for local businesses." },
+      { name: "description", content: "Explore every feature: 1-click multi-channel marketing, automated reputation protection, and local visibility analytics built for local businesses." },
       { property: "og:title", content: "Features - Local Biz Ninja" },
-      { property: "og:description", content: "Capture every lead, publish everywhere in one click, and protect your reputation on autopilot." },
+      { property: "og:description", content: "Publish everywhere in one click, protect your reputation, and see where you rank locally." },
     ],
   }),
   component: FeaturesPage,
 });
 
 const outcomes = [
-  { icon: DollarSign, title: "Capture Lost Revenue", body: "Every missed call is a customer ready to spend. We put them back in the conversation before they call anyone else." },
-  { icon: Clock, title: "Save 10+ Hours a Week", body: "Marketing, reviews, and follow-ups run themselves - freeing your team to focus on serving customers." },
+  { icon: DollarSign, title: "Stay in the Conversation", body: "When your channels go quiet, customers assume you're closed. Consistent publishing keeps your business visible where people already look." },
+  { icon: Clock, title: "Save 10+ Hours a Week", body: "Marketing, reviews, and content calendars run themselves - freeing your team to focus on serving customers." },
   { icon: TrendingUp, title: "Boost Local SEO", body: "Fresh content, fast review responses, and consistent posting move you up in local search - where it counts." },
   { icon: ShieldCheck, title: "Protect Your Reputation", body: "Only your best foot goes forward. A manager approves every sensitive reply before it's ever published." },
 ];
 
 const groups = [
   {
-    eyebrow: "The 24/7 Safety Net",
-    title: "Never miss a lead - even after hours.",
-    intro: "Your phone stops being a leak and starts being a growth engine.",
-    items: [
-      { icon: PhoneCall, title: "Instant Text-Back", body: "The second a call is missed, the caller gets a warm, personal text - keeping them engaged before they move on." },
-      { icon: Users, title: "Smart Team Routing", body: "If your main line rings 3 times, the call is simultaneously routed to up to 5 team phones so the first available person picks up." },
-      { icon: BellRing, title: "Real-Time Alerts", body: "Every missed call and new lead lights up your team on mobile and desktop, keeping response times measured in seconds." },
-    ],
-  },
-  {
     eyebrow: "1-Click Multi-Channel Marketing",
     title: "Show up everywhere your customers already are.",
     intro: "Stop juggling five tabs. One click reaches every channel that matters.",
     items: [
       { icon: Send, title: "1-Click Content Generation", body: "Turn a single idea into on-brand promotions tailored to each channel - no writing, no formatting, no design." },
-      { icon: MessageSquare, title: "SMS, Email, Facebook & Google", body: "Reach your entire audience in one motion across text, inbox, social, and your Google Business Profile." },
+      { icon: MessageSquare, title: "Text, Email, Social & Your Profile", body: "Reach your entire audience in one motion across text, inbox, social, and your business profile." },
       { icon: Calendar, title: "Automated Content Planner", body: "A month-at-a-glance calendar is built and scheduled for you, so your marketing never goes quiet." },
     ],
   },
@@ -54,6 +44,16 @@ const groups = [
       { icon: ShieldCheck, title: "Always-On Monitoring", body: "Every platform is watched around the clock - nothing slips by without a response and a strategy behind it." },
     ],
   },
+  {
+    eyebrow: "Reporting & Local Visibility Analytics",
+    title: "See where you rank - and what to do next.",
+    intro: "One dashboard for local rankings, channel performance, and the next move worth making.",
+    items: [
+      { icon: MapPin, title: "Local Rank Heat Maps", body: "See exactly where your business ranks in local map results across every square mile of your neighborhood." },
+      { icon: BarChart3, title: "Unified Marketing Reporting", body: "Track social engagement, business profile traffic, and email campaign conversion in a single visual dashboard." },
+      { icon: Lightbulb, title: "Actionable Weekly Insights", body: "Receive weekly digest cards telling you which channels are working and how to bring in more local traffic." },
+    ],
+  },
 ];
 
 function FeaturesPage() {
@@ -62,9 +62,9 @@ function FeaturesPage() {
       <section className="text-white" style={{ background: "var(--gradient-hero)" }}>
         <div className="max-w-5xl mx-auto px-6 py-24 md:py-32 text-center">
           <div className="text-sm font-semibold text-primary uppercase tracking-wider mb-4">Features</div>
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight">Everything you need to stop leaking leads.</h1>
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight">Everything you need to stay visible and grow.</h1>
           <p className="mt-6 text-lg text-white/70 max-w-2xl mx-auto">
-            Local Biz Ninja replaces the patchwork of missed-call apps, marketing tools, and reputation trackers with one automated assistant - focused entirely on business outcomes.
+            Local Biz Ninja replaces the patchwork of marketing tools, review managers, and local ranking dashboards with one automated assistant - focused entirely on business outcomes.
           </p>
         </div>
       </section>

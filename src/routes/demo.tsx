@@ -8,7 +8,7 @@ export const Route = createFileRoute("/demo")({
   head: () => ({
     meta: [
       { title: "Request a Demo - Local Biz Ninja" },
-      { name: "description", content: "See Local Biz Ninja in a 20-minute personalized demo. Discover how to capture every lead, automate marketing, and protect your reputation." },
+      { name: "description", content: "See Local Biz Ninja in a 20-minute personalized demo. Discover how to automate marketing, protect your reputation, and track local visibility." },
       { property: "og:title", content: "Request a Demo - Local Biz Ninja" },
       { property: "og:description", content: "Book a 20-minute personalized walkthrough of Local Biz Ninja." },
     ],
@@ -32,12 +32,12 @@ function DemoPage() {
           </div>
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight">See Local Biz Ninja tailored to your business.</h1>
           <p className="mt-5 text-lg text-white/70">
-            Tell us a little about your business and a product specialist will walk you through exactly how Local Biz Ninja plugs every leak - and what it will look like for you.
+            Tell us a little about your business and a product specialist will walk you through how marketing, reviews, and local visibility work together - and what that looks like for you.
           </p>
           <ul className="mt-10 space-y-4">
             {[
               { icon: Clock, title: "20 minutes, zero pressure", body: "A working walkthrough - not a sales pitch." },
-              { icon: CheckCircle2, title: "Tailored to your workflow", body: "See exactly how missed calls, marketing, and reviews will run for you." },
+              { icon: CheckCircle2, title: "Tailored to your workflow", body: "See exactly how marketing, reviews, and local visibility will run for you." },
               { icon: ShieldCheck, title: "Your data stays yours", body: "We never share, sell, or spam. Ever." },
             ].map((f) => (
               <li key={f.title} className="flex gap-4">
@@ -131,7 +131,7 @@ function DemoPage() {
               </div>
               <div>
                 <label className="block text-sm font-medium mb-1.5">What are you hoping to fix?</label>
-                <textarea name="message" rows={3} className="w-full rounded-lg border border-input bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Missed calls, quiet social channels, review backlog…" />
+                <textarea name="message" rows={3} className="w-full rounded-lg border border-input bg-background px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Quiet social channels, review backlog, unclear local rankings…" />
               </div>
               {error && <p className="text-sm text-red-600">{error}</p>}
               <button

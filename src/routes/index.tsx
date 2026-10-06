@@ -1,10 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
-  PhoneOff, Ghost, MessageSquareX,
-  PhoneCall, BellRing, Users, ShieldCheck,
-  Sparkles, Calendar, Send, Facebook, Mail, MessageSquare,
+  Ghost, MessageSquareX, MapPin,
+  ShieldCheck,
+  Sparkles, Calendar, Send, MessageSquare,
   Star, ShieldAlert, CheckCircle2, ArrowRight,
-  MapPin, BarChart3, LineChart, Lightbulb, TrendingUp,
+  BarChart3, LineChart, Lightbulb, TrendingUp,
 } from "lucide-react";
 import heroImg from "../assets/hero.jpg";
 
@@ -27,7 +27,7 @@ function Home() {
               The All-in-One <span className="text-primary">Automated Assistant</span> for Local Businesses
             </h1>
             <p className="mt-6 text-lg text-white/70 max-w-xl">
-              Capture every missed call, publish across every channel with one click, and protect your reputation - all on autopilot. Stop leaking revenue and start growing.
+              Publish across every channel in one click, protect your reputation, and see exactly where you rank locally - all on autopilot. Stop leaking revenue and start growing.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link to="/demo" className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 font-semibold text-slate-deep shadow-[var(--shadow-glow)] hover:brightness-110 transition" style={{ background: "var(--gradient-teal)" }}>
@@ -38,7 +38,7 @@ function Home() {
               </Link>
             </div>
             <div className="mt-10 flex items-center gap-6 text-sm text-white/60">
-              <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-primary" /> No missed leads</div>
+              <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-primary" /> Consistent local presence</div>
               <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-primary" /> Setup in days</div>
             </div>
           </div>
@@ -58,9 +58,9 @@ function Home() {
         </div>
         <div className="grid md:grid-cols-3 gap-6">
           {[
-            { icon: PhoneOff, title: "Missed Calls", desc: "Every unanswered call is a customer who just called your competitor instead. It happens dozens of times a month - silently." },
-            { icon: Ghost, title: "Ghost Town Social Media", desc: "Empty Facebook pages and stale Google profiles make you look closed. Prospects scroll past to businesses that look alive." },
+            { icon: Ghost, title: "Ghost Town Social Media", desc: "Empty profiles and stale posts make you look closed. Prospects scroll past to businesses that look alive." },
             { icon: MessageSquareX, title: "Unanswered Reviews", desc: "Reviews sitting without a response tell future customers you don't care - and quietly tank your local search ranking." },
+            { icon: MapPin, title: "Invisible in Local Search", desc: "Without a clear view of where you rank, competitors own the searches your customers already make - and the lost traffic never shows up on a report." },
           ].map((p) => (
             <div key={p.title} className="group relative rounded-2xl border border-border bg-card p-8 hover:border-primary/50 hover:shadow-[var(--shadow-card)] transition-all">
               <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style={{ background: "var(--gradient-teal)" }}>
@@ -73,35 +73,22 @@ function Home() {
         </div>
       </section>
 
-      {/* FEATURE 1: 24/7 Safety Net */}
+      {/* FEATURE 1: Multi-Channel Marketing */}
       <FeatureSection
-        eyebrow="Feature 01 · The 24/7 Safety Net"
-        title="Never lose another lead to a missed call."
-        description="The moment a call is missed, your customer gets an instant, personal text back - and your entire team gets pinged on mobile and desktop. Nothing slips through the cracks, ever."
+        eyebrow="Feature 01 · 1-Click Multi-Channel Marketing"
+        title="Publish everywhere your customers are - in a single click."
+        description="Write once. Reach everyone. Generate on-brand content and push it to text, email, social, and your business profile simultaneously, guided by a smart planner that never leaves a gap in your calendar."
         bullets={[
-          { icon: PhoneCall, title: "Instant Missed-Call Text-Back", body: "Callers receive a friendly text within seconds, keeping the conversation warm while they're still holding their phone." },
-          { icon: BellRing, title: "Team-Wide Notifications", body: "Every missed call and new lead lights up your team on mobile and desktop - no one has to babysit the phone." },
-          { icon: Users, title: "Smart Team Routing", body: "If your main line rings 3 times, the call is instantly routed to up to 5 team phones at once - so the first available person always answers." },
+          { icon: Send, title: "1-Click Content Generation", body: "Turn a single idea into a polished promotion tailored for every channel - no copywriter, no design headaches." },
+          { icon: MessageSquare, title: "Text, Email, Social & Your Profile", body: "Send offers and updates to every channel at once. Your customers see you everywhere they already are." },
+          { icon: Calendar, title: "Automated Planner & Calendar", body: "A month-at-a-glance content plan is built for you and scheduled automatically - so your marketing runs itself." },
         ]}
         dark
       />
 
-      {/* FEATURE 2: Multi-Channel Marketing */}
+      {/* FEATURE 2: Reputation Protection */}
       <FeatureSection
-        eyebrow="Feature 02 · 1-Click Multi-Channel Marketing"
-        title="Publish everywhere your customers are - in a single click."
-        description="Write once. Reach everyone. Generate on-brand content and push it to SMS, email, Facebook and your Google Business Profile simultaneously, guided by a smart planner that never leaves a gap in your calendar."
-        bullets={[
-          { icon: Send, title: "1-Click Content Generation", body: "Turn a single idea into a polished promotion tailored for every channel - no copywriter, no design headaches." },
-          { icon: MessageSquare, title: "SMS, Email, Facebook & Google", body: "Blast offers and updates to every channel at once. Your customers see you everywhere they already are." },
-          { icon: Calendar, title: "Automated Planner & Calendar", body: "A month-at-a-glance content plan is built for you and scheduled automatically - so your marketing runs itself." },
-        ]}
-        icons={[Facebook, Mail, MessageSquare]}
-      />
-
-      {/* FEATURE 3: Reputation Protection */}
-      <FeatureSection
-        eyebrow="Feature 03 · Automated Reputation Protection"
+        eyebrow="Feature 02 · Automated Reputation Protection"
         title="Answer every review instantly - without ever posting a bad reply."
         description="Great reviews get thoughtful, on-brand responses in seconds. Anything negative or low-star is quietly paused and routed to a manager for approval - so your reputation is always protected."
         bullets={[
@@ -109,10 +96,9 @@ function Home() {
           { icon: ShieldAlert, title: "Manager's Safety Filter", body: "Negative or low-star reviews are automatically held back and sent to a manager for manual approval before anything goes live." },
           { icon: ShieldCheck, title: "Reputation on Autopilot", body: "Your star rating, response rate and local SEO improve week after week - with zero daily effort from your team." },
         ]}
-        dark
       />
 
-      {/* FEATURE 4: Reporting & Local Visibility Analytics */}
+      {/* FEATURE 3: Reporting & Local Visibility Analytics */}
       <VisibilitySection />
 
       {/* FINAL CTA */}
@@ -125,7 +111,7 @@ function Home() {
                 Stop leaking revenue. Start growing on autopilot.
               </h2>
               <p className="mt-5 text-lg text-white/70 max-w-xl mx-auto">
-                See how Local Biz Ninja captures every lead, fills your calendar, and protects your reputation - in a 20-minute personalized demo.
+                See how Local Biz Ninja fills your marketing calendar, protects your reputation, and shows where you rank - in a 20-minute personalized demo.
               </p>
               <div className="mt-9 flex flex-wrap justify-center gap-4">
                 <Link to="/demo" className="inline-flex items-center gap-2 rounded-full px-8 py-4 font-semibold text-slate-deep shadow-[var(--shadow-glow)] hover:brightness-110 transition" style={{ background: "var(--gradient-teal)" }}>
@@ -150,17 +136,17 @@ function VisibilitySection() {
     {
       icon: MapPin,
       title: "Local SEO Grid Heat Maps",
-      body: "See exactly where your business ranks on Google Maps across every square mile of your local neighborhood.",
+      body: "See exactly where your business ranks in local map results across every square mile of your neighborhood.",
     },
     {
       icon: BarChart3,
       title: "Unified Marketing Reporting",
-      body: "Track Facebook engagement, Google Business Profile traffic, and email campaign conversion metrics in a single, visual dashboard.",
+      body: "Track social engagement, business profile traffic, and email campaign conversion in a single visual dashboard.",
     },
     {
       icon: Lightbulb,
       title: "Automated Actionable Insights",
-      body: "Receive weekly digest cards telling you exactly where your leads are coming from and how to capture more local traffic.",
+      body: "Receive weekly digest cards telling you which channels are working and how to bring in more local traffic.",
     },
   ];
 
@@ -183,13 +169,13 @@ function VisibilitySection() {
         {/* TEXT SIDE */}
         <div>
           <div className="text-sm font-semibold text-primary uppercase tracking-wider mb-3">
-            Feature 04 · Reporting & Local Visibility Analytics
+            Feature 03 · Reporting & Local Visibility Analytics
           </div>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
             Command Local Search with <span className="text-primary">360° Visibility</span>
           </h2>
           <p className="mt-5 text-lg text-white/70 max-w-xl">
-            Know exactly where you rank, what's driving your leads, and what to do next - all from one beautifully clear dashboard built for local business owners.
+            Know exactly where you rank, which channels are working, and what to do next - all from one dashboard built for local business owners.
           </p>
           <div className="mt-10 space-y-5">
             {points.map((p) => (

@@ -51,7 +51,7 @@ export function SiteFooter() {
           <div className="flex items-center mb-3">
             <img src={logoAsset.url} alt="Local Biz Ninja" className="h-10 w-auto rounded-md bg-white/90 p-1" />
           </div>
-          <p className="text-sm max-w-xs">The all-in-one automated assistant helping local businesses capture every lead and grow their reputation.</p>
+          <p className="text-sm max-w-xs">The all-in-one automated assistant helping local businesses market everywhere, protect their reputation, and see where they rank.</p>
         </div>
         <div>
           <div className="text-white font-semibold mb-3 text-sm">Product</div>

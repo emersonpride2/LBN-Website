@@ -72,7 +72,7 @@ export const template = {
     phone: '+1 555-123-4567',
     smsOptIn: true,
     industry: 'Home services',
-    message: 'Missing calls after hours and no follow-up on reviews.',
+    message: 'Quiet social channels and no follow-up on reviews.',
     submittedAt: new Date().toISOString(),
   },
 } satisfies TemplateEntry
