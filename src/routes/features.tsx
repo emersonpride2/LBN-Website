@@ -4,14 +4,15 @@ import {
   Star, ShieldAlert, ShieldCheck, TrendingUp, Clock, DollarSign, ArrowRight,
 } from "lucide-react";
 import { Reveal } from "../components/Reveal";
+import { AiReceptionistSection } from "../components/AiReceptionist";
 
 export const Route = createFileRoute("/features")({
   head: () => ({
     meta: [
       { title: "Features - Local Biz Ninja" },
-      { name: "description", content: "Explore every feature: 1-click multi-channel marketing, automated reputation protection, and local visibility analytics built for local businesses." },
+      { name: "description", content: "An AI receptionist that answers, qualifies, and books — plus 1-click marketing, reputation protection, and local visibility for local businesses." },
       { property: "og:title", content: "Features - Local Biz Ninja" },
-      { property: "og:description", content: "Publish everywhere in one click, protect your reputation, and see where you rank locally." },
+      { property: "og:description", content: "Never miss a call again. An AI receptionist answers, qualifies the lead, and books the appointment." },
     ],
   }),
   component: FeaturesPage,
@@ -67,10 +68,12 @@ function FeaturesPage() {
           <div className="text-sm font-semibold text-primary uppercase tracking-wider mb-4">Features</div>
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight">Everything you need to stay visible and grow.</h1>
           <p className="mt-6 text-lg text-white/70 max-w-2xl mx-auto">
-            Local Biz Ninja replaces the patchwork of marketing tools, review managers, and local ranking dashboards with one automated assistant - focused entirely on business outcomes.
+            Local Biz Ninja answers the phone, publishes your marketing, protects reviews, and shows where you rank — one automated assistant focused on outcomes.
           </p>
         </div>
       </section>
+
+      <AiReceptionistSection />
 
       {/* Outcomes grid */}
       <section className="max-w-7xl mx-auto px-6 py-20">

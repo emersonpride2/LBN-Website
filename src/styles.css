@@ -309,6 +309,40 @@
   animation: cta-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
+@keyframes phone-pulse {
+  0% {
+    transform: scale(0.72);
+    opacity: 0.55;
+  }
+  100% {
+    transform: scale(1.18);
+    opacity: 0;
+  }
+}
+
+@keyframes bubble-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.phone-ring {
+  animation: phone-pulse 2.6s ease-out infinite;
+}
+
+.phone-ring-delay {
+  animation-delay: 0.85s;
+}
+
+.bubble-in {
+  animation: bubble-in 0.35s ease both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal-hidden,
   .reveal-shown,
@@ -319,10 +353,16 @@
   .hero-spark,
   .channel-swap,
   .rank-live,
-  .scroll-cta {
+  .scroll-cta,
+  .phone-ring,
+  .bubble-in {
     animation: none;
     opacity: 1;
     transform: none;
+  }
+
+  .phone-ring {
+    opacity: 0.35;
   }
 
   .lift-card:hover {

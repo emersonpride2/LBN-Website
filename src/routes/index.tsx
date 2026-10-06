@@ -10,6 +10,7 @@ import heroImg from "../assets/hero.jpg";
 import { Reveal } from "../components/Reveal";
 import { ChannelDemo } from "../components/ChannelDemo";
 import { ProblemSwitcher } from "../components/ProblemSwitcher";
+import { AiReceptionistTeaser } from "../components/AiReceptionist";
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -53,6 +54,8 @@ function Home() {
           </div>
         </div>
       </section>
+
+      <AiReceptionistTeaser />
 
       {/* PROBLEM GRID */}
       <section className="max-w-7xl mx-auto px-6 py-24">
